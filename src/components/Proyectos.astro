@@ -1,0 +1,79 @@
+---
+import EncabezadoSeccion    from "@components/EncabezadoSeccion.astro"
+import ProyectosIcono       from "@components/icons/ProyectosIcono.astro"
+import React                from '@components/icons/React.astro'
+import NextJS               from '@components/icons/NextJS.astro'
+import Tailwind             from '@components/icons/Tailwind.astro'
+import AuthJS               from '@components/icons/AuthJS.astro'
+import Firebase             from '@components/icons/Firebase.astro'
+
+const TAGS = {
+    REACT: {
+        nombre: 'React',
+        class: 'bg-slate-500 text-slate-300',
+        icon: React
+    },
+    NEXT: {
+        nombre: 'Next.js',
+        class: 'bg-slate-700 text-slate-300',
+        icon: NextJS
+    },
+    TAILWIND: {
+        nombre: 'Tailwind',
+        class: 'bg-[#003159] text-[#73bcf5]',
+        icon: Tailwind
+    },
+    AUTHJS: {
+        nombre: 'Auth.js',
+        class: 'bg-[#9628ae]/30 text-slate-300',
+        icon: AuthJS
+    },
+    FIREBASE: {
+        nombre: 'Firebase',
+        class: 'bg-[#dd2c00]/25 text-[#ffc400]',
+        icon: Firebase
+    },
+}
+
+const {REACT, NEXT, TAILWIND, AUTHJS, FIREBASE} = TAGS
+
+const PROYECTOS = [
+    {
+        titulo: 'Maite-Sol. Delivery a pata',
+        descripcion: 'Esta app se desarrolló para que dos alumnas de una escuela secundaria vendieran productos comestibles a compañeros y compañeras de toda la escuela.',
+        link: '#',
+        img: 'https://via.placeholder.com/300x200',
+        tags: [REACT, NEXT, TAILWIND, AUTHJS, FIREBASE]
+    }
+]
+---
+
+<EncabezadoSeccion>
+    <ProyectosIcono class="size-6" />
+    Proyectos
+</EncabezadoSeccion>
+
+{PROYECTOS.map(({titulo, descripcion, img, tags}) => (
+    <article>
+        <h3 class="flex items-center mb-1 text-lg font-semibold text-sky-200">
+            {titulo}
+        </h3>
+        <p class="text-base font-normal text-slate-400 text-pretty">
+            {descripcion}
+        </p>
+        <ul class="my-4 grid grid-cols-3 gap-2 items-center">
+            {tags.map(tag => (
+                <div class={`flex justify-center items-center
+                gap-2 py-2
+                rounded-full border border-white/10
+                text-xs ${tag.class}`}>
+                    <tag.icon class="size-4" /> {tag.nombre}
+                </div>
+            ))}
+        </ul>
+        <img
+        class="rounded-lg"
+        src={'/maite-sol.webp'}
+        alt={`Captura de pantalla de ${titulo}`} />
+    </article>
+))}

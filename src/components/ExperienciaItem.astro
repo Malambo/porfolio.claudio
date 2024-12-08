@@ -1,0 +1,47 @@
+---
+interface Props {
+    fecha: string
+    titulo: string
+    descripcion: string
+    link?: string
+}
+
+const {fecha, titulo, descripcion, link} = Astro.props
+---
+
+<span class="absolute flex items-center justify-center w-6 h-6 rounded-full -start-3 ring-8 ring-slate-900 bg-sky-900">
+    <svg class="w-2.5 h-2.5 text-sky-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+    </svg>
+</span>
+
+<div class="ml-1">
+    <h3 class="flex items-center mb-1 text-lg font-semibold text-sky-200">
+        {titulo}
+    </h3>
+    
+    <time class="block mb-2 text-sm font-normal leading-none text-slate-500">
+        {fecha}
+    </time>
+    
+    <p class="mb-4 text-base font-normal text-slate-400 text-pretty">
+        {descripcion}
+    </p>
+    
+    {link &&
+    <a
+    href={link}
+    target="_blank"
+    class="flex justify-center items-center
+    w-fit gap-x-2 px-5 py-2
+    rounded-full border border-white/10
+    bg-white/5 hover:bg-white/10
+    cursor-pointer transition">
+        Saber más...
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+    </a>
+    }
+</div>
+

@@ -1,0 +1,11 @@
+---
+import ExperienciaIcono from "./icons/ExperienciaIcono.astro"
+
+const {class: className, id} = Astro.props
+---
+
+<section
+id={id}
+class={`${className} w-11/12 mx-auto sm:w-1/2 space-y-10 px-4 text-pretty pt-20`}>
+    <slot />
+</section>

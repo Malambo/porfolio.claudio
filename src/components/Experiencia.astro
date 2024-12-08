@@ -1,0 +1,38 @@
+---
+import EncabezadoSeccion from "./EncabezadoSeccion.astro";
+import ExperienciaItem from "./ExperienciaItem.astro";
+import ExperienciaIcono from "./icons/ExperienciaIcono.astro";
+
+const EXPERIENCIA = [
+    {
+        fecha: 'Actualmente...',
+        titulo: 'Codificación con Tailwind de la UI de MusiKratos',
+        descripcion: 'Encargado de definir la interfaz de usuario de la app de música democrática para oficinas MusiKratos.'
+    },
+    {
+        fecha: 'Febrero 2023 - actualidad',
+        titulo: 'Community manager OPISU',
+        descripcion: 'Diseño, implementación y contenido de newsletter del Organismo Provincial de Integración Social y Urbana de la provincia de Buenos Aires',
+        link: 'https://www.gba.gob.ar/opisu'
+    },
+    {
+        fecha: 'Enero 2023 - marzo 2024',
+        titulo: 'Codificación y estructura de Maite-Sol',
+        descripcion: 'Planificación y desarrollo de la app de venta online de comidas Maite-Sol.',
+        link: 'https://maite-sol.vercel.app'
+    },
+]
+---
+
+<EncabezadoSeccion>
+    <ExperienciaIcono class="size-6" />
+    Experiencia
+</EncabezadoSeccion>
+
+<ol class="relative border-s border-slate-600">
+    {EXPERIENCIA.map(experiencia => (
+        <li class="mb-10 ms-6">
+            <ExperienciaItem {...experiencia}/>
+        </li>    
+    ))}
+</ol>

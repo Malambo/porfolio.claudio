@@ -1,11 +1,55 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Badge			from '@components/Badge.astro'
+import Layout			from '@layouts/Layout.astro'
+import LinkedIn			from '@components/icons/LinkedIn.astro'
+import SocialPill		from '@components/SocialPill.astro'
+import GitHub			from '@components/icons/GitHub.astro'
+import Email			from '@components/icons/Email.astro'
+import Whatsapp			from '@components/icons/Whatsapp.astro'
+import Experiencia		from '@components/Experiencia.astro'
+import SeccionContainer	from '@components/SeccionContainer.astro'
+import Proyectos		from '@components/Proyectos.astro'
 ---
 
 <Layout>
-	<Welcome />
+	<main id="top">
+		<SeccionContainer class="py-24">
+			<img
+			class='size-24 rounded-full border-2 border-slate-900'
+			src={'/perfil.png'}
+			alt='Foto del candidato'>
+			<div class="flex flex-col gap-x-4 items-center sm:flex-row">
+				<h1 class="flex items-center gap-4 w-max text-slate-50 text-3xl  font-bold sm:text-5xl">¡Hola!, soy Claudio</h1>
+				<Badge>Disponible</Badge>
+			</div>
+			<h2 class="font-extralight sm:text-2xl text-pretty">+5 años de experiencia. Desarrollador web junior y creador de contenido. De La Plata, Argentina. Resolviendo problemas y construyendo el futuro de la web, una línea de código a la vez. Mi portfolio es una muestra de mi intento para crear soluciones web innovadoras, eficaces y seguras.</h2>
+
+			<nav class="grid gap-4 grid-cols-2">
+				<SocialPill href="https://ar.linkedin.com/in/claudio-uribe-6060a135">
+					<LinkedIn class="size-4" />
+					LinkedIn
+				</SocialPill>
+				<SocialPill href="https://github.com/Malambo">
+					<GitHub class="size-5" />
+					GitHub
+				</SocialPill>
+				<SocialPill href="mailto:bloxito@gmail.com?subject=Queremos que trabajes con nosotros">
+					<Email class="size-4" />
+					Email
+				</SocialPill>
+				<SocialPill href="whatsapp://send?phone=+5492246446870&text=Hola!">
+					<Whatsapp class="size-4" />
+					Whatsapp
+				</SocialPill>
+			</nav>
+		</SeccionContainer>
+
+		<SeccionContainer id="experiencia">
+			<Experiencia />
+		</SeccionContainer>
+
+		<SeccionContainer id="proyectos">
+			<Proyectos />
+		</SeccionContainer>
+	</main>
 </Layout>
